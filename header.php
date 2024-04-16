@@ -75,7 +75,8 @@ $index = new index;
 
                         
                         ?>
-                        <li><?php echo $result['danhmuc_ten'] ?>
+                        <!-- hiện thị danh mục sản phẩm -->  
+                        <li><?php echo $result['danhmuc_ten'] ?> 
                             <ul class="top-menu-item">
                                     <?php
                                       $danhmuc_id = $result['danhmuc_id'];
