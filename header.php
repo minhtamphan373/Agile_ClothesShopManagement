@@ -85,7 +85,7 @@ $index = new index;
                                     ?>
                                     <li><a href="cartegory.php?loaisanpham_id=<?php echo $result['loaisanpham_id'] ?>"><?php echo $result['loaisanpham_ten'] ?></a></li>
                                     <?php
-                                     } }
+                                     }}
                                     ?>
                             </ul>
                             <i class="fas fa-chevron-down"></i>
