@@ -27,7 +27,7 @@ $show_brand = $brand -> show_brand()
                         <td> <?php echo $result['loaisanpham_id'] ?></td>
                         <td> <?php echo $result['danhmuc_ten']  ?></td>
                         <td> <?php echo $result['loaisanpham_ten'] ?></td>
-                        <td><a href="brandedit.php?loaisanpham_id=<?php echo $result['loaisanpham_id'] ?>">Sửa</a>|<a href="branddelete.php?loaisanpham_id=<?php echo $result['loaisanpham_id'] ?>">Xóa</a></td>
+                        <td><a href="brandedit.php?loaisanpham_id=<?php echo $result['loaisanpham_id'] ?>">Sửa</a>|<a href="branddelete.php?loaisanpham_id=<?php echo $result['loaisanpham_id'] ?>" onclick="return confirm('delete this product?')">Xóa</a></td>
                     </tr>
                     <?php
                      }}
