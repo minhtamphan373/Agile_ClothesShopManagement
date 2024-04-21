@@ -75,7 +75,7 @@ $index = new index;
 
                         
                         ?>
-                        <!-- hiện thị danh mục sản phẩm -->  
+                        <!-- CSM-51:[Customer]Category List - hiện thị danh mục sản phẩm -->  
                         <li><?php echo $result['danhmuc_ten'] ?> 
                             <ul class="top-menu-item">
                                     <?php
