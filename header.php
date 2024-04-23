@@ -76,6 +76,7 @@ $index = new index;
                         ?> 
                         <li><?php echo $result['danhmuc_ten'] ?> 
                             <ul class="top-menu-item">
+				<!-- Product Type List -->
                                     <?php
                                       $danhmuc_id = $result['danhmuc_id'];
                                       $show_loaisanpham = $index ->show_loaisanpham($danhmuc_id);
