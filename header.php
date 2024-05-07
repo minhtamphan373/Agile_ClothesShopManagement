@@ -69,15 +69,14 @@ $index = new index;
                 </div>
                 <div class="top-menu-items">
                     <ul>
+                        <!-- CSM-51:[Customer]Category List - hiện thị danh mục sản phẩm -->
                         <?php
                         $show_danhmuc = $index ->show_danhmuc();
                         if($show_danhmuc){while($result = $show_danhmuc ->fetch_assoc()) {
-
-                        
-                        ?>
-                        <!-- hiện thị danh mục sản phẩm -->  
+                        ?> 
                         <li><?php echo $result['danhmuc_ten'] ?> 
                             <ul class="top-menu-item">
+				<!-- Product Type List -->
                                     <?php
                                       $danhmuc_id = $result['danhmuc_id'];
                                       $show_loaisanpham = $index ->show_loaisanpham($danhmuc_id);
