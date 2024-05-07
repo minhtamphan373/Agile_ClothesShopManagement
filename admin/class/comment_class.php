@@ -32,7 +32,7 @@ public function show_answer() {
     return $result;
 }
 public function show_member(){
-    $query = "SELECT * FROM tbl_user ORDER BY userA_id DESC";
+    $query = "SELECT * FROM tbl_user ORDER BY user_id DESC";
     $result = $this -> db ->select($query);
     return $result;
 }
