@@ -173,6 +173,29 @@
     //     return $result;
     // }
     
+    public function searchProducts($keyword) {
+        // Kết nối đến cơ sở dữ liệu
+        $conn = new mysqli('localhost', 'root', '', 'website_ivy');
+    
+        // Kiểm tra kết nối
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+    
+        // Sử dụng Prepared Statements để tránh SQL Injection
+        $query = "SELECT * FROM tbl_sanpham WHERE sanpham_tieude LIKE ?";
+        $stmt = $conn->prepare($query);
+        $keyword = '%' . $keyword . '%';
+        $stmt->bind_param("s", $keyword);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        // Đóng kết nối
+        $stmt->close();
+        $conn->close();
+    
+        return $result;
+    }
 
     public function verifyr_user_register($user_useremail, $user_password){
     $query = "SELECT * FROM tbl_user  WHERE user_email = '$user_useremail' AND user_password = '$user_password' LIMIT 1 ";
