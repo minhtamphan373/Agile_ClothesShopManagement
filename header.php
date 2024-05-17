@@ -109,8 +109,12 @@ $index = new index;
                             ?>
                         </li>
                         <li>
-                            <input type="text" placeholder="tìm kiếm">
-                            <i class="fas fa-search"></i>
+                            <form method="GET" action="search.php"> <!-- Tạo form và gửi dữ liệu tìm kiếm đến trang "search.php" -->
+                                <div class="search-form">
+                                <input type="text" name="keyword" placeholder="Tìm kiếm">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                                </div>
+                            </form>
                         </li>
                         <li>
                             <!-- <button class="user-button">
