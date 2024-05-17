@@ -30,6 +30,20 @@ if(isset($_GET['user_id'])){
         color: inherit; /* Giữ màu icon không thay đổi */
         text-decoration: none; /* Xóa gạch chân mặc định của liên kết */
     }
+    .search-form input[type="text"] {
+    padding-right: 40px; /* Để chừa không gian cho nút tìm kiếm */
+}
+
+.search-form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
 </style>
 <?php
