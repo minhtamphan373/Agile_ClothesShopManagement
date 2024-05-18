@@ -2,8 +2,26 @@
 include "header.php";
 ?>
 <?php
+// Import the file containing the constants
+require_once 'config/config.php';
+
+// Create a connection to the database
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$conn->close();
 if(!isset($_GET['id'])){  
     echo "<meta http-equiv='refresh' content='0; url=?id=live'>";
+}
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+if(isset($_POST['update_quantity'])){
+    $cart_id = $_POST['cart_id'];
+    $cart_quantity = $_POST['cart_quantity'];
+    mysqli_query($conn, "UPDATE `tbl_cart` SET quantitys = '$cart_quantity' WHERE cart_id = '$cart_id'") or die('query failed');
+    $message[] = 'Product quantity updated!';
 }
 ?>
 
@@ -59,9 +77,15 @@ if(!isset($_GET['id'])){
                                 <td><p><?php echo $result['sanpham_tieude'] ?></p></td>
                                 <td><img src="<?php echo $result['color_anh'] ?>" alt=""></td>
                                 <td><p><?php echo $result['sanpham_size'] ?></p></td>
-                                <td><span><?php echo $result['quantitys'] ?></span></td>
+                                <td>
+                                    <form action="" method="post">
+                                        <input type="hidden" value="<?php echo $result['cart_id']; ?>" name="cart_id">
+                                        <input type="number" min="1" value="<?php echo $result['quantitys']; ?>" name="cart_quantity" class="qty">
+                                        <button type="submit" value="update" name="update_quantity" onclick="return confirm('Bạn có chắc chắn muốn cập nhật?');">Update</button>                                                                             
+                                    </form>                                                                                                      
+                                </td>
                                 <td><p><?php $resultC = number_format($result['sanpham_gia']); echo $resultC ?><sup>đ</sup></p></td>
-                                <td><a href="cartdelete.php?cart_id=<?php echo $result['cart_id'] ?>"><span>x</span></a></td>
+                                <td><a href="cartdelete.php?cart_id=<?php echo $result['cart_id'] ?>" onclick="return confirm('Bạn có chắc chắn muốn xoá?');"><span>x</span></a></td>
                                 <?php $a = (int)$result['sanpham_gia']; $b = (int)$result['quantitys']; $TTA = $a*$b;   ?>
                             </tr>
                            <?php
