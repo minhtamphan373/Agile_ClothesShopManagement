@@ -165,7 +165,7 @@ $index = new index;
                                     <img style="width:50px" src="<?php echo $result['sanpham_anh']  ?>" alt="">
                                     <div class="cart-content-item-text">
                                     <h1><?php echo $result['sanpham_tieude']  ?></h1> 
-                                    <p>Màu: xanh lơ</p>
+                                    <p>Màu: <img src="<?php echo $result['color_anh'] ?>" alt="" width="12" height="12"> </p>
                                     <p>Size: <?php echo $result['sanpham_size']  ?></p>
                                     <p>SL: <?php echo $result['quantitys']  ?></p>
                                     </div>
