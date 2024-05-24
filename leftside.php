@@ -28,6 +28,7 @@ if (isset($_GET['loaisanpham_id'])|| $_GET['loaisanpham_id']!=NULL){
                         ?>
                         <li class="cartegory-left-li"><a href="#"><?php echo $result['danhmuc_ten'] ?></a>
                             <ul>
+				<!-- Product Type List -->
                                     <?php
                                       $danhmuc_id = $result['danhmuc_id'];
                                       $show_loaisanpham = $index ->show_loaisanpham($danhmuc_id);

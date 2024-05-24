@@ -27,7 +27,7 @@ if(isset($_GET['admin_id'])){
                 <li><a href="#"><img style="width:20px" src="icon/menu.png" alt="">Loại Sản Phẩm</a>
                     <ul>
                         <li><a href="brandlist.php">Danh sách</a></li>
-                        <li><a href="brandadd.php">Thêm</a></li>
+                        <li><a href="brandadd.php">Thêm</a></li>                        
                     </ul>
                 </li>
                 <li><a href="#"><img style="width:20px" src="icon/colour.png" alt="">Màu sắc</a>
@@ -52,6 +52,11 @@ if(isset($_GET['admin_id'])){
                     <ul>
                         <li><a href="sizesanphamlists.php">Danh sách</a></li>
                         <li><a href="sizesanphamadds.php">Thêm</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img style="width:20px" src="icon/membership.png" alt="">Tài khoản</a>
+                    <ul>
+                        <li><a href="memberlist.php">Danh sách</a></li>                        
                     </ul>
                 </li>
 

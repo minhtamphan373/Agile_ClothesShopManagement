@@ -30,6 +30,20 @@ if(isset($_GET['user_id'])){
         color: inherit; /* Giữ màu icon không thay đổi */
         text-decoration: none; /* Xóa gạch chân mặc định của liên kết */
     }
+    .search-form input[type="text"] {
+    padding-right: 40px; /* Để chừa không gian cho nút tìm kiếm */
+}
+
+.search-form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
 </style>
 <?php
@@ -76,6 +90,7 @@ $index = new index;
                         ?> 
                         <li><?php echo $result['danhmuc_ten'] ?> 
                             <ul class="top-menu-item">
+				<!-- Product Type List -->
                                     <?php
                                       $danhmuc_id = $result['danhmuc_id'];
                                       $show_loaisanpham = $index ->show_loaisanpham($danhmuc_id);
@@ -108,8 +123,12 @@ $index = new index;
                             ?>
                         </li>
                         <li>
-                            <input type="text" placeholder="tìm kiếm">
-                            <i class="fas fa-search"></i>
+                            <form method="GET" action="search.php"> <!-- Tạo form và gửi dữ liệu tìm kiếm đến trang "search.php" -->
+                                <div class="search-form">
+                                <input type="text" name="keyword" placeholder="Tìm kiếm">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                                </div>
+                            </form>
                         </li>
                         <li>
                             <!-- <button class="user-button">
@@ -146,7 +165,7 @@ $index = new index;
                                     <img style="width:50px" src="<?php echo $result['sanpham_anh']  ?>" alt="">
                                     <div class="cart-content-item-text">
                                     <h1><?php echo $result['sanpham_tieude']  ?></h1> 
-                                    <p>Màu: xanh lơ</p>
+                                    <p>Màu: <img src="<?php echo $result['color_anh'] ?>" alt="" width="12" height="12"> </p>
                                     <p>Size: <?php echo $result['sanpham_size']  ?></p>
                                     <p>SL: <?php echo $result['quantitys']  ?></p>
                                     </div>

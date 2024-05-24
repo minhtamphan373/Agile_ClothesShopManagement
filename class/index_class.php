@@ -173,6 +173,29 @@
     //     return $result;
     // }
     
+    public function searchProducts($keyword) {
+        // Kết nối đến cơ sở dữ liệu
+        $conn = new mysqli('localhost', 'root', '', 'website_ivy');
+    
+        // Kiểm tra kết nối
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+    
+        // Sử dụng Prepared Statements để tránh SQL Injection
+        $query = "SELECT * FROM tbl_sanpham WHERE sanpham_tieude LIKE ?";
+        $stmt = $conn->prepare($query);
+        $keyword = '%' . $keyword . '%';
+        $stmt->bind_param("s", $keyword);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        // Đóng kết nối
+        $stmt->close();
+        $conn->close();
+    
+        return $result;
+    }
 
     public function verifyr_user_register($user_useremail, $user_password){
     $query = "SELECT * FROM tbl_user  WHERE user_email = '$user_useremail' AND user_password = '$user_password' LIMIT 1 ";
@@ -181,7 +204,7 @@
         $value = $result->fetch_assoc();
         Session::set('user_ten', $value['user_ten']);
         Session::set('user_id', $value['user_id']);
-        Session::set('user_img', $value['user_img']);
+        // Session::set('user_img', $value['user_img']);
         return true;
     } else {
         return false;
@@ -225,10 +248,15 @@
         $result = $this -> db ->select($query);
         if($result!=false) {
             $value = $result ->fetch_assoc();
+            if ($value['status'] == 0) {
+                $alert = "Tài khoản của bạn đã bị khóa.";
+                return $alert;
+            } else {
             // Session::set('user_login',true);
             Session::set('user_ten',$value['user_ten']);
             Session::set('user_id',$value['user_id']);
             Session::set('user_img',$value['user_img']);
+            }
         }
         else {
             $alert = "Tên đăng nhập hoặc mật khẩu không đúng";
@@ -330,6 +358,14 @@
         $result = $this -> db ->select($query);
         return $result;
     }
+
+    public function update_cart($session_id, $new_quantity)
+    {
+        $query = "UPDATE tbl_cart SET quantitys = '$new_quantity' WHERE session_idA = '$session_id' ORDER BY cart_id DESC";
+        $result = $this-> db ->update($query);
+        return $result;
+    }
+
     public function show_cartF($session_id){
         $query = "SELECT * FROM tbl_cart WHERE session_idA = '$session_id' ORDER BY cart_id DESC";
         $result = $this -> db ->select($query);
@@ -473,7 +509,22 @@
         return $result;
     }
 
+  
+    
+    public function get_user_status($email) {
+        // Thực hiện truy vấn để lấy trạng thái của người dùng từ cơ sở dữ liệu
+        $query = "SELECT status FROM tbl_user WHERE user_email = '$email'";
+        $result = $this -> db->select($query);
+    
+        if ($result && $result->num_rows > 0) {
+            $status = $result->fetch_assoc()['status'];
+            return $status;
+        } else {
+            // Trả về giá trị mặc định nếu không tìm thấy người dùng
+            return null;
+        }
+    }
+    
+    
 }
-
- 
 ?>
