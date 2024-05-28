@@ -52,7 +52,7 @@ $fm = new Format();
                         <td><a href="anhsanphamlist.php?sanpham_id=<?php echo $result['sanpham_id'] ?>">Xem</a></td>
                         <td><a href="sizesanphamlist.php?sanpham_id=<?php echo $result['sanpham_id'] ?>">Xem</a></td>
                         <td><a href="productedit.php?sanpham_id=<?php echo $result['sanpham_id'] ?>">Sửa</a>|
-                        <a href="productdelete.php?sanpham_id=<?php echo $result['sanpham_id'] ?>">Xóa</a></td>
+                        <a href="productdelete.php?sanpham_id=<?php echo $result['sanpham_id'] ?>" onclick="return confirm('Sản phẩm sẽ bị xóa vĩnh viễn, bạn có chắc muốn tiếp tục không?');">Xóa</a></td>
                     </tr>
                     <?php
                      }}

@@ -4,8 +4,18 @@ include "leftside.php";
 // include "class/cartegory_class.php";
 // define('__ROOT__', dirname(dirname(__FILE__))); 
 // require_once(__ROOT__.'../admin/class/cartegory_class.php');
-$brand = new brand;
-$show_color = $brand -> show_color()
+ 
+?>
+<?php
+$product = new product();
+if (isset($_GET['sanpham_id'])|| $_GET['sanpham_id']!=NULL){
+    $sanpham_id = $_GET['sanpham_id'];
+    }
+    $get_size = $product -> get_size($sanpham_id);
+    
+?>
+<?php
+
 ?>
        <div class="admin-content-right">
             <div class="table-content">
@@ -13,22 +23,23 @@ $show_color = $brand -> show_color()
                     <tr>
                         <th>Stt</th>
                         <th>ID</th>
-                        <th>Tên màu</th>
-                        <th>Ảnh</th>
+                        <th>ID Sản phẩm</th>
+                        <th>Mã Sản phẩm</th>
+                        <th>Size Sản phẩm</th>
                         <th>Tùy chỉnh</th>
                     </tr>
                     <?php
-                    if($show_color){$i=0; while($result= $show_color->fetch_assoc()){
+                    if($get_size){$i=0; while($result= $get_size->fetch_assoc()){
                         $i++
                    
                     ?>
                     <tr>
                         <td> <?php echo $i ?></td>
-                        <td> <?php echo $result['color_id'] ?></td>
-                        <td> <?php echo $result['color_ten']  ?></td>
-                        <td> <img style="width: 50px; height: 50px" src="uploads/<?php echo $result['color_anh'] ?>" alt=""></td>
-                        <td><a href="coloredit.php?color_id=<?php echo $result['color_id'] ?>">Sửa</a>|
-                        <a href="colordelete.php?color_id=<?php echo $result['color_id'] ?>" onclick="return confirm('Tài khoản người dùng sẽ xóa vĩnh viễn, bạn có chắc muốn tiếp tục không?');">Xóa</a></td>
+                        <td> <?php echo $result['sanpham_size_id'] ?></td>
+                        <td> <?php echo $result['sanpham_id'] ?></td>
+                        <td> <?php echo $result['sanpham_ma']  ?></td>
+                        <td> <?php echo $result['sanpham_size']  ?></td>
+                        <td><a href="sizesanphamdelete.php?sanpham_size_id=<?php echo $result['sanpham_size_id'] ?>" onclick="return confirm('Bạn có chắc muốn tiếp tục không?');">Xóa</a></td>
                     </tr>
                     <?php
                      }}

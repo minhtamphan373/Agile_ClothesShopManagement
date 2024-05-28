@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <form action="" method="POST" enctype="multipart/form-data">
                     <label for="">Vùi lòng danh mục<span style="color: red;">*</span></label> <br>
                     <input type="text" name="danhmuc_ten" value="<?php echo $resul['danhmuc_ten'] ?>">
-                    <button class="admin-btn" type="submit">Sửa</button>             
+                    <button class="admin-btn" type="submit" onclick="return confirm('Danh mục sẽ thay đổi, bạn có chắc muốn tiếp tục không?');">Sửa</button>             
                 </form>
             </div>           
         </div>

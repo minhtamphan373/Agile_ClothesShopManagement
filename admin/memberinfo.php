@@ -59,7 +59,7 @@ $conn->close();
             
             <?php if ($row_info) : ?>
                 <p><strong>Ngày tháng năm sinh:</strong> <?php echo $row_info['date_of_birth']; ?></p>
-                <p><strong>Tuổi:</strong> <?php echo $row_info['age']; ?></p>
+                <p><strong>SĐT:</strong> <?php echo $row_info['age']; ?></p>
                 <p><strong>Giới tính:</strong> <?php echo $row_info['gender']; ?></p>
                 <p><strong>Địa chỉ:</strong> <?php echo $row_info['address']; ?></p>                              
             <?php else: ?>

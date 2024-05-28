@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <input style="float: left;margin-right:12px" checked="checked" name="loaikhach" type="radio" value="khachle">
                     <p><span style="font-weight: bold;">Khách lẻ</span> (Nếu bạn không muốn lưu lại thông tin)</p>
                    <br>
-                    <input style="float: left;margin-right:12px" class="register-input" name="loaikhach" value="dangky" type="radio">
+                    <input style="float: left;margin-right:12px" class="register-input" name="loaikhach" value="dangky" type="radio" disabled>
                     <p><span style="font-weight: bold;">Đăng ký</span> (Tạo mới tài khoản với thông tin bên dưới)</p>
                     <br>
                     <div class="delivery-content-left-input-top row">

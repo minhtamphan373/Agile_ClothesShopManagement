@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
                         ?>
                     </div>
                     <input type="file" multiple  name="sanpham_anhs[]"> <br>   
-                    <button class="admin-btn" name="submit" type="submit">Gửi</button>  
+                    <button class="admin-btn" name="submit" type="submit" onclick="return confirm('Sản phẩm sẽ thay đổi, bạn có chắc muốn tiếp tục không?');">Gửi</button>  
                 </form>
             </div>           
         </div>

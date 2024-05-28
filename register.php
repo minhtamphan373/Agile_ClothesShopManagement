@@ -129,26 +129,26 @@
             <h1>Ivy - Register</h1>                      
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                 <input type="text" name="email" placeholder="Enter Your Email" >
-                <span style="color:red; font-family: 'Bona Nova', serif;">
+                <span style="color:red; font-family: 'Bona Nova', serif; display: block;">
                     <?php                       
                         if(isset($emailErr)){echo $emailErr;}
                     ?>
                 </span>               
                 <input type="text" name="username" placeholder="Enter Your Name">
-                <span style="color:red; font-family: 'Bona Nova', serif;">
+                <span style="color:red; font-family: 'Bona Nova', serif; display: block;">
                     <?php
                         if(isset($check_register)){ echo $check_register;}
                         else if(isset($nameErr)){echo $nameErr;}                            
                     ?>
                 </span>  
                 <input type="password" name="password" placeholder="Enter Your Password">
-                <span style="color:red; font-family: 'Bona Nova', serif;">
+                <span style="color:red; font-family: 'Bona Nova', serif; display: block;">
                     <?php                            
                         if(isset($passwordErr)){echo $passwordErr;}
                     ?>
                 </span>                 
                 <input type="password" name="cpassword" placeholder="Enter Your Confirm Password">
-                <span style="color:red; font-family: 'Bona Nova', serif;">
+                <span style="color:red; font-family: 'Bona Nova', serif; display: block;">
                     <?php                            
                         if(isset($cpasswordErr)){echo $cpasswordErr;}
                     ?>
@@ -163,7 +163,7 @@
 
             <br></br>
             <div class="social-icons">
-                <p>Have an account! <a href="index.php">Login</a>.</p>
+                <p>Have an account! <a href="loginaccount.php">Login</a>.</p>
             </div>
         </div>
     </div>

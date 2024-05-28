@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-bottom: 10px;
         }
         input[type="date"],
-        input[type="number"],
+        input[type="text"],
         select,
         textarea {
             width: 100%;
@@ -143,8 +143,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="date_of_birth">Ngày tháng năm sinh:</label>
             <input type="date" id="date_of_birth" name="date_of_birth">
 
-            <label for="age">Tuổi:</label>
-            <input type="number" id="age" name="age">
+            <label for="age">SĐT:</label>
+            <input type="text" id="age" name="age" pattern="0[0-9]{9,10}" title="SĐT phải bắt đầu bằng số 0 và có từ 10 đến 11 chữ số">
 
             <label for="gender">Giới tính:</label>
             <select id="gender" name="gender">

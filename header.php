@@ -112,14 +112,19 @@ $index = new index;
                     <ul>
                         <li>
                             <?php
+                                
                                 // Kiểm tra xem người dùng đã đăng nhập hay chưa
-                                if(isset($_SESSION['user_ten'])) {
-                                // Nếu đã đăng nhập, hiển thị tên người dùng
-                                echo '<p>Chào: <span style="color: blueviolet; font-size: 22px">' . $_SESSION['user_ten'] . '</span></p>';
+                                if(isset($_SESSION['user_ten']) ) {
+                                    if(isset($_SESSION['status']) && $_SESSION['status'] == 1){
+                                        echo '<p>Chào: <span style="color: blueviolet; font-size: 22px">' . $_SESSION['user_ten'] . '</span></p>';
+                                    } else {
+                                        echo '<p><></p>';
+                                    }
                                 } else {
-                                // Nếu chưa đăng nhập, hiển thị nút đăng nhập hoặc thông báo khác
-                                echo '<p><></p>';
+                                    echo '<p><></p>';
                                 }
+
+                                
                             ?>
                         </li>
                         <li>
@@ -137,13 +142,18 @@ $index = new index;
                             <?php
                                 // Kiểm tra xem người dùng đã đăng nhập hay chưa
                                 if(isset($_SESSION['user_ten'])) {
-                                    // Nếu đã đăng nhập, hiển thị nút "Đăng xuất" và "Xem thông tin"
-                                    echo '<a href="logout.php" class="icon-link"> <i class="fa-solid fa-right-from-bracket"></i> </a>';
-                                    echo '<li><a href="userinfo.php" class="icon-link"> <i class="fa-solid fa-circle-info"></i> </a></li>';
-                                } else {
-                                    // Nếu chưa đăng nhập, hiển thị nút đăng nhập hoặc thông báo khác
+                                    if(isset($_SESSION['status']) && $_SESSION['status'] == 1){
+                                        // Nếu đã đăng nhập, hiển thị nút "Đăng xuất" và "Xem thông tin"
+                                        echo '<a href="logout.php" class="icon-link"> <i class="fa-solid fa-right-from-bracket"></i> </a>';
+                                        echo '<li><a href="userinfo.php" class="icon-link"> <i class="fa-solid fa-circle-info"></i> </a></li>';
+                                    } else {
+                                        // Nếu chưa đăng nhập, hiển thị nút đăng nhập hoặc thông báo khác
+                                        echo '<a href="loginaccount.php" class="icon-link"><i class="fas fa-user-secret"></i></a>';
+                                    }
+                                }else{
                                     echo '<a href="loginaccount.php" class="icon-link"><i class="fas fa-user-secret"></i></a>';
                                 }
+
                             ?>
                             
                             <!-- <a href="loginaccount.php" class="icon-link"><i class="fas fa-user-secret"></i></a> -->

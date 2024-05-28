@@ -35,11 +35,12 @@ $show_member = $comment -> show_member()
                 <td>
                     <?php 
                     if($result['status'] == 1){
-                        echo '<p><a href="memberstatus.php?user_id='.$result['user_id'].'&status=0" 
-                        class="btn btn-success">Active</a></p>';
+                        echo '<p><a href="memberstatus.php?user_id='.$result['user_id'].'&status=0"  
+                        class="btn btn-success"
+                        onclick="return confirm(\'Tài khoản người dùng sẽ bị khóa, bạn có chắc muốn tiếp tục không?\');">Active</a></p>';
                     } else {
                         echo '<p><a href="memberstatus.php?user_id='.$result['user_id'].'&status=1" 
-                        class="btn btn-danger">Inactive</a></p>';
+                        class="btn btn-danger" onclick="return confirm(\'Tài khoản người dùng sẽ được mở khóa, bạn có chắc muốn tiếp tục không?\');">Inactive</a></p>';
                     }
                     ?>
 
@@ -48,8 +49,8 @@ $show_member = $comment -> show_member()
                 <td>
                     <?php
                     
-                    ?>
-                    <a href="memberdelete.php?user_id=<?php echo $result['user_id'] ?>">Xóa</a>
+                    ?><a href="memberupdate.php?user_id=<?php echo $result['user_id'] ?>">Cập nhật </a>|
+                    <a href="memberdelete.php?user_id=<?php echo $result['user_id'] ?>" onclick="return confirm('Tài khoản người dùng sẽ xóa vĩnh viễn, bạn có chắc muốn tiếp tục không?');">Xóa</a></td>
                 </td>
             </tr>
             <?php

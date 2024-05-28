@@ -17,7 +17,7 @@
     
 ?>
 <?php
-    
+
     $emailErr = $passwordErr = "";
     $msg = "";
 
@@ -45,6 +45,7 @@
         if ($status === 0) {
             // Tài khoản đã bị khóa
             $msg = "Tài khoản của bạn đã bị khóa.";
+            $_SESSION['status'] = $status;
             header("Location: loginaccount.php");
         }
         if(empty($emailErr) && empty($passwordErr)) {
@@ -52,10 +53,12 @@
 
             if($verify_result == true && $status == 1) {
                     // Xác thực người dùng thành công, chuyển hướng đến trang bảng điều khiển hoặc trang chủ
+                    
+                    $_SESSION['status'] = $status;
                     header("Location: index.php");
                     exit();
             } else {
-                $msg = "Email hoặc mật khẩu không hợp lệ. Nếu vẫn không đăng nhập được, 
+                $msg = "Email hoặc mật khẩu không hợp lệ. Nếu vẫn không đăng nhập được, </br>
                 có khả năng bạn đã bị khóa tài khoản. Liên hệ ngay với admin để mở lại";
             }
         }
@@ -91,7 +94,7 @@
             <h1>Ivy - Đăng nhập</h1>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                 <input type="text" name="email" placeholder="Nhập Email của bạn">
-                <span style="color:red; font-family: 'Bona Nova', serif;">
+                <span style="color:red; font-family: 'Bona Nova', serif; display: block;">
                     <?php                       
                         if(isset($emailErr)){echo $emailErr;}
                     ?>

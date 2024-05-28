@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                     </select><br>
                     <label for="">Vùi lòng chọn Loại sản phẩm<span style="color: red;">*</span></label> <br>
                     <input class="subcartegory-input" type="text" value="<?php echo $resul['loaisanpham_ten'] ?>" name="loaisanpham_ten">
-                    <button class="admin-btn" type="submit">Gửi</button>             
+                    <button class="admin-btn" type="submit" onclick="return confirm('Loại sản phẩm sẽ thay đổi, bạn có chắc muốn tiếp tục không?');">Gửi</button>             
                 </form>
             </div>           
         </div>

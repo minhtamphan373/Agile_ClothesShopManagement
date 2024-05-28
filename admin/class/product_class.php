@@ -24,7 +24,7 @@ include_once "../helper/format.php"
     public function insert_sizesp($sanpham_id,$sanpham_size){
         $query = "INSERT INTO tbl_sanpham_size (sanpham_id,sanpham_size) VALUES ('$sanpham_id','$sanpham_size')";
         $result = $this ->db ->insert($query);
-        header('Location:sizesanphamlists.php');
+        header('Location:productlist.php');
         return $result;
     }
     public function insert_product($data,$file){

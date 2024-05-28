@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                     <label for="">Ảnh đại diện<span style="color: red;">*</span></label> <br>
                     <img style="width: 100px; height: 100px" src="uploads/<?php echo $resul['color_anh'] ?>" alt="">
                     <input required type="file" name="color_anh"> <br>   
-                    <button class="admin-btn" type="submit">Gửi</button>             
+                    <button class="admin-btn" type="submit" onclick="return confirm('Color sẽ thay đổi, bạn có chắc muốn tiếp tục không?');">Gửi</button>             
                 </form>
             </div>           
         </div>

@@ -27,7 +27,8 @@ $show_cartegory = $cartegory -> show_cartegory()
                         <td> <?php echo $result['danhmuc_ten']  ?></td>
 
                         
-                        <td><a href="cartegoryedit.php?danhmuc_id=<?php echo $result['danhmuc_id'] ?>">Sửa</a>|<a href="cartegorydelete.php?danhmuc_id=<?php echo $result['danhmuc_id'] ?>">Xóa</a></td>
+                        <td><a href="cartegoryedit.php?danhmuc_id=<?php echo $result['danhmuc_id'] ?>">Sửa</a>|
+                        <a href="cartegorydelete.php?danhmuc_id=<?php echo $result['danhmuc_id'] ?>" onclick="return confirm('Danh mục sẽ bị xóa vĩnh viễn, bạn có chắc muốn tiếp tục không?');">Xóa</a></td>
                     </tr>
                     <?php
                      }}
