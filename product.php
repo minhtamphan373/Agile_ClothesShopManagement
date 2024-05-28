@@ -81,6 +81,7 @@ if (isset($_GET['sanpham_id'])|| $_GET['sanpham_id']!=NULL){
                     </div>
                     <div class="product-content-right-product-button">
                         <button class="add-cart-btn"> <i class="fas fa-shopping-cart"></i> <p>MUA HÀNG</p></button>
+                    <!-- //Add product to cart -->
                         <button><p>TÌM TẠI CỬA HÀNG</p></button>
                     </div>
                     <div class="product-content-right-product-icon">
